@@ -1,0 +1,18 @@
+{
+    "structure": {
+        "src": {
+            "__init__.py": "",
+            "main.py": "def main():\n    pass\n\nif __name__ == '__main__':\n    main()",
+            "config.py": "from dataclasses import dataclass\n\n@dataclass\nclass Config:\n    pass"
+        },
+        "tests": {
+            "__init__.py": "",
+            "test_main.py": "import unittest\n\nclass TestMain(unittest.TestCase):\n    def test_sample(self):\n        self.assertTrue(True)"
+        },
+        "docs": {
+            "README.md": "# ${project_name}\n\n${project_description}"
+        },
+        "requirements.txt": "pytest>=6.0.0\npytest-cov>=2.0.0",
+        "setup.py": "from setuptools import setup, find_packages\n\nsetup(\n    name='${project_name}',\n    version='0.1.0',\n    packages=find_packages()\n)"
+    }
+}
