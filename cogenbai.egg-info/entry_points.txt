@@ -1,0 +1,2 @@
+[console_scripts]
+cogenbai = cogenbai.cli.main:cli

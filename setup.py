@@ -28,7 +28,6 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     url="https://algoscienceacademy.com/cogenbai",
-    organization="Algo Science Academy",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",

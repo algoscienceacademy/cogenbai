@@ -1,3 +1,37 @@
+Metadata-Version: 2.2
+Name: cogenbai
+Version: 1.0.0
+Summary: Advanced AI model for coding experts by Algo Science Academy
+Home-page: https://algoscienceacademy.com/cogenbai
+Author: Shahrear Hossain Shawon
+Author-email: contact@algoscienceacademy.com
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=1.9.0
+Requires-Dist: transformers>=4.11.0
+Requires-Dist: pyttsx3>=2.90
+Requires-Dist: fastapi>=0.68.0
+Requires-Dist: uvicorn>=0.15.0
+Requires-Dist: click>=8.0.0
+Requires-Dist: autopep8>=1.5.7
+Requires-Dist: black>=21.5b2
+Requires-Dist: yapf>=0.31.0
+Requires-Dist: websockets>=10.0
+Requires-Dist: python-socketio>=5.5.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # COGENBAI
 
 An advanced AI model for coding experts, created by Algo Science Academy.
@@ -193,60 +227,6 @@ print("Generated test code:", test_code)
    - Model Size: ~8GB
    - Working Memory: ~2GB
    - Total Required: ~10GB
-
-## Pushing to Ollama Registry
-
-### 1. Find Your Ollama Public Key
-
-Locate your public key based on your operating system:
-
-- **Windows**: `C:\Users\<username>\.ollama\id_ed25519.pub`
-- **macOS**: `~/.ollama/id_ed25519.pub`
-- **Linux**: `/usr/share/ollama/.ollama/id_ed25519.pub`
-
-### 2. Configure Registry Access
-
-1. Copy your public key
-2. Add it to [Ollama Registry Settings](https://ollama.com/settings)
-
-### 3. Push the Model
-
-#### Option 1: Create and Push New Model
-```bash
-# Pull base model
-ollama pull llama3.2
-
-# Create Modelfile
-cat << EOF > Modelfile
-FROM llama3.2
-PARAMETER temperature 0.7
-PARAMETER top_p 0.95
-SYSTEM """
-You are COGENBAI, an advanced code generation AI.
-Focus: Code generation and software development assistance
-Created by: Shahrear Hossain Shawon
-Organization: Algo Science Academy
-"""
-EOF
-
-# Create and push model
-ollama create -f Modelfile algoscienceacademy/cogenbai
-ollama push algoscienceacademy/cogenbai
-```
-
-#### Option 2: Push Existing Model
-```bash
-ollama cp llama3.2 algoscienceacademy/cogenbai
-ollama push algoscienceacademy/cogenbai
-```
-
-## Usage
-
-```bash
-ollama run algoscienceacademy/cogenbai
-```
-
-For detailed build and deployment instructions, see [BUILD.md](BUILD.md).
 
 ## License
 

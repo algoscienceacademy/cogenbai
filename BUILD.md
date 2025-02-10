@@ -72,6 +72,72 @@ ollama create cogenbai -f Modelfile
 ollama run cogenbai
 ```
 
+## Building with Ollama
+
+### Prerequisites
+- Ollama installed on your system
+- Base model files ready
+
+### Steps to Build Model in Ollama
+
+1. Create a Modelfile:
+```bash
+# Modelfile
+FROM codellama
+PARAMETER temperature 0.7
+PARAMETER top_p 0.95
+PARAMETER num_ctx 4096
+
+# Model configuration
+SYSTEM """
+You are COGENBAI, an advanced code generation AI.
+Focus: Code generation and software development assistance
+Created by: Shahrear Hossain Shawon
+Organization: Algo Science Academy
+"""
+
+# Include base model files
+FROM models/codegen-16B-multi
+```
+
+2. Build the model in Ollama:
+```bash
+# Navigate to project directory
+cd cogenbai
+
+# Build the model
+ollama create cogenbai -f Modelfile
+
+# Verify the build
+ollama list
+```
+
+3. Run the model:
+```bash
+ollama run cogenbai
+```
+
+### Testing the Build
+
+Test your model with a simple prompt:
+```bash
+ollama run cogenbai "Write a Python function to calculate fibonacci sequence"
+```
+
+### Troubleshooting Ollama Build
+
+If you encounter issues:
+1. Check Ollama logs:
+```bash
+ollama logs
+```
+
+2. Rebuild model if needed:
+```bash
+ollama rm cogenbai
+ollama create cogenbai -f Modelfile
+```
+
 ## Docker Deployment
 
 1. Build Docker image:
